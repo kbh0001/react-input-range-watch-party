@@ -75,12 +75,33 @@
     "react": "^15.0.0",
     "react-dom": "^15.0.0"
   },
+  "betterScripts": {
+    "build-bundle": {
+      "command": "webpack",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
+    "build-lib": {
+      "command": "babel src/js --out-dir lib/js --source-maps",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
+    "build-scss": {
+      "command": "node-sass src/scss --recursive --source-map true --output lib/css",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  },
+
   "scripts": {
-    "prebuild": "npm test && rm -rf lib",
+    "prebuild": "rimraf lib",
     "build": "npm run build:lib && npm run build:scss && npm run build:bundle",
-    "build:bundle": "NODE_ENV=production webpack",
-    "build:lib": "NODE_ENV=production babel src/js --out-dir lib/js --source-maps",
-    "build:scss": "NODE_ENV=production node-sass src/scss --recursive --source-map true --output lib/css",
+    "build:bundle": "better-npm-run build-bundle",
+    "build:lib": "better-npm-run build-lib",
+    "build:scss": "better-npm-run build-scss",
     "changelog": "conventional-changelog --preset angular --infile CHANGELOG.md --same-file",
     "dev": "webpack-dev-server --inline --config webpack-example.config.babel.js --content-base example",
     "docs": "esdoc",
@@ -88,11 +109,14 @@
     "lint:js": "eslint src/js/ --ext .js --ext .jsx",
     "lint:scss": "sass-lint --verbose --no-exit",
     "prepublish": "npm run build",
-    "pretest": "npm run lint",
+    "pretest": "",
     "test": "karma start --single-run"
   },
+
   "dependencies": {
     "autobind-decorator": "^1.3.4",
-    "prop-types": "^15.5.8"
+    "better-npm-run": "0.0.15",
+    "prop-types": "^15.5.8",
+    "rimraf": "^2.6.1"
   }
 }
