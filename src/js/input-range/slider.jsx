@@ -255,7 +255,7 @@ export default class Slider extends React.Component {
    */
   render() {
     const style = this.getStyle();
-    debugger
+
 
     return (
       <span

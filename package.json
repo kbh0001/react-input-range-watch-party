@@ -1,6 +1,6 @@
 {
-  "name": "react-input-range",
-  "version": "1.1.4",
+  "name": "eb-react-input-range",
+  "version": "1.1.5",
   "description": "React component for inputting numeric values within a range",
   "keywords": [
     "react",
@@ -14,11 +14,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/davidchin/react-input-range.git"
+    "url": "https://github.com/kbh0001/react-input-range-watch-party.git"
   },
   "main": "lib/js/index.js",
   "types": "react-input-range.d.ts",
-  "author": "David Chin",
+  "author": "Ken Hoskins",
   "license": "MIT",
   "devDependencies": {
     "@types/react": "^15.0.1",
@@ -111,6 +111,7 @@
     "prepublish": "npm run build",
     "pretest": "",
     "test": "karma start --single-run"
+
   },
 
   "dependencies": {
